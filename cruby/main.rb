@@ -14,5 +14,10 @@ class CRuby
     builder.c 'int mul(int a, int b) {
       return a * b;
     }'
+
+    # to avoid previous declaration div
+    builder.c 'double divided(double a, double b) {
+      return a / b;
+    }'
   end
 end  

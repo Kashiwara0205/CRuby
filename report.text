@@ -4,6 +4,8 @@
 より精密なbenchmarkをとるためにgem（'benchmark/ips'）を導入
 Warming up：iterations per second
 Calculating：標準偏差
+i/s(iteration per second):毎秒反復回数
+
 計測してみると純粋なrubyの方がやはり速度が出る
 
 オブジェクトからの呼び出しやパーサーの処理の事を考えて１＋１とCRuby.add(1, 1)で計測するのは

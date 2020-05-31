@@ -11,4 +11,8 @@ class Ruby
   def mul a, b
     return a * b
   end
+
+  def div a, b
+    return a / b
+  end
 end  
