@@ -1,3 +1,7 @@
 1 + 1や1 - 1などの単純な計算は純粋なrubyの処理速度が勝る
 - 5/30
 
+より精密なbenchmarkをとるためにgem（'benchmark/ips'）を導入
+Warming up：iterations per second
+Calculating：標準偏差
+計測してみると純粋なrubyの方がやはり速度が出る

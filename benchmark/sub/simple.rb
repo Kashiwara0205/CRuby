@@ -1,15 +1,20 @@
 require './../../cruby/main'
+require 'benchmark/ips'
 
 c_ruby = CRuby.new
 
-start_time = Time.now
-10000.times do 
-  1 - 1
-end
-puts Time.now - start_time
+Benchmark.ips do |x|
+  x.report("ruby"){
+    10000.times do 
+      1 - 1
+    end
+  }
 
-start_time = Time.now
-10000.times do 
-  c_ruby.sub(1, 1)
+  x.report("cruby"){
+    10000.times do 
+      c_ruby.sub(1, 1)
+    end
+  }
+
+  x.compare!
 end
-puts Time.now - start_time
