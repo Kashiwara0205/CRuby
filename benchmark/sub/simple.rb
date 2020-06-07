@@ -13,5 +13,9 @@ Benchmark.ips do |x|
     c_ruby.sub(1, 1)
   }
 
+  x.report("1 - 1"){
+    1 - 1
+  }
+  
   x.compare!
 end
