@@ -15,4 +15,8 @@ class Ruby
   def div a, b
     return a / b
   end
+
+  def concat a, b
+    a.concat(b)
+  end
 end  

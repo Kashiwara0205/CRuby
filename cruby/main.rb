@@ -69,5 +69,44 @@ class CRuby
       return rb_int_new(result);
     }"
 
+    builder.c "
+    VALUE push_1(VALUE a) {
+      VALUE *a_arr = RARRAY_PTR(a);
+      int a_len = RARRAY_LEN(a);
+      rb_ary_store(a, a_len, rb_int_new(1));
+      return 0;
+    }"
+
+    builder.c "
+    VALUE dynamic_concat_int(VALUE a, VALUE b) {
+      VALUE *a_arr = RARRAY_PTR(a);
+      int a_len = RARRAY_LEN(a);
+
+      VALUE *b_arr = RARRAY_PTR(b);
+      int b_len = RARRAY_LEN(b);
+
+      int i;
+      for(i = 0; i < b_len; i++) {
+        rb_ary_store(a, i + a_len, b_arr[i]);
+      }
+
+      return 0;
+    }"
+
+    builder.c "
+    VALUE concat(VALUE a, VALUE b) {
+      int a_len = RARRAY_LEN(a);
+
+      VALUE *b_arr = RARRAY_PTR(b);
+      int b_len = RARRAY_LEN(b);
+
+      int i;
+      for(i = 0; i < b_len; i++) {
+        rb_ary_store(a, i + a_len, b_arr[i]);
+      }
+
+      return 0;
+    }"
+
   end
 end  
